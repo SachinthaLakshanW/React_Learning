@@ -1,10 +1,11 @@
 import Create from "./components/Create";
+import { Layout } from "./components";
 
 function App() {
   return (
-    <div className="App">
+    <Layout>
       <Create />
-    </div>
+    </Layout>
   );
 }
 export default App;
