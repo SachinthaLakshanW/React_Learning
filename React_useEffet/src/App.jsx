@@ -4,9 +4,10 @@ export default function App() {
   const [items, setItems] = useState([]);
   console.log("render");
   useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/${resourceType}`)
-      .then((response) => response.json())
-      .then((json) => console.log(json));
+    console.log("resource changed");
+    return () => {
+      console.log("return from resoeuce change");
+    };
   }, [resourceType]);
 
   return (
@@ -17,9 +18,6 @@ export default function App() {
         <button onClick={() => setResourceType("comments")}>Comments</button>
       </div>
       <h1>{resourceType}</h1>
-      {items.map((item) => {
-        return <pre>{JSON.stringify(item)}</pre>;
-      })}
     </>
   );
 }
